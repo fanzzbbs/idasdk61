@@ -376,7 +376,7 @@ idaman THREAD_SAFE void ida_export get_nsec_stamp(uint64 *nsecs);
 
 // non standard functions are missing:
 #ifdef _MSC_VER
-AS_SCANF(2, 0) int idaapi vsscanf(const char *input, const char *format, va_list va);
+AS_SCANF(2, 0) EXTERNC int __declspec(dllimport) __cdecl vsscanf(const char *input, const char *format, va_list va);
 #if _MSC_VER <= 1200
 #define for if(0) ; else for  // MSVC is not compliant to the ANSI standard :(
 #else

@@ -18,6 +18,7 @@
 #define IDP_DESC_START   0x80
 #define IDP_DESC_END    0x200
 
+#include <Windows.h>
 #include <string.h>
 #include <stdio.h>
 
@@ -52,6 +53,9 @@ int main(int argc,char *argv[])
     fprintf(stderr,"mkidp: too long processor description\n");
     return 1;
   }
+
+  MessageBoxA(NULL, argv[1], "Loaded IDP module", MB_OK);
+  MessageBoxA(NULL, argv[2], "Will now write processor description", MB_OK);
 
   fseek(fp, IDP_DESC_START ,SEEK_SET);
   if ( fwrite(argv[2], len, 1, fp) != 1 )
